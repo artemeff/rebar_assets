@@ -2,6 +2,7 @@
 -define(node(Bin), "node_modules/.bin/"++Bin).
 -export([ 'assets'/2
         , 'assets-watch'/2
+        , 'assets-serve'/2
         ]).
 
 'assets'(Config, _AppFile) ->
