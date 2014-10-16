@@ -48,7 +48,7 @@ install_deps() ->
     end.
 
 cmd(Cmd) ->
-    Opt = [return_on_error,{use_stdout,false}],
+    Opt = [return_on_error],
     Res = rebar_utils:sh(Cmd, Opt),
     case Res of
         {ok, _} -> ok;
