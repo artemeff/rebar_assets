@@ -24,10 +24,19 @@ Sample rebar.config:
 ```
 
 ```bash
-# to compile assets
+# compile assets
 $ rebar assets
-# to start server
+# start server
+$ rebar assets-serve
+# watch changes and recompiles
 $ rebar assets-watch
+```
+
+If you use erlang application add this to erlang app that have assets:
+
+```erlang
+% rebar.config
+{post_hooks, [{compile, "rebar assets"}]}.
 ```
 
 ---

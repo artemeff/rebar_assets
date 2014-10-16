@@ -13,6 +13,13 @@
 
 'assets-watch'(Config, _AppFile) ->
     prepare(Config, fun(Spec) ->
+        Files = proplists:get_value(files, Spec, []),
+        Exec  = join([?node("mincer-erl-watch"), join(Files)]),
+        cmd(Exec)
+    end).
+
+'assets-serve'(Config, _AppFile) ->
+    prepare(Config, fun(Spec) ->
         Port    = proplists:get_value(assets_port, Spec, 3000),
         PortArg = "-p " ++ integer_to_list(Port),
         Exec    = join([?node("mincer-erl-serve"), PortArg]),
